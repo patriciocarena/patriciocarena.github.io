@@ -1,3 +1,4 @@
+import { LanguageProvider } from "@/i18n/LanguageContext";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
@@ -11,7 +12,7 @@ import BackToTop from "@/components/BackToTop";
 
 const Index = () => {
   return (
-    <>
+    <LanguageProvider>
       <Navbar />
       <main>
         <HeroSection />
@@ -24,7 +25,7 @@ const Index = () => {
       </main>
       <Footer />
       <BackToTop />
-    </>
+    </LanguageProvider>
   );
 };
 

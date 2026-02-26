@@ -1,56 +1,16 @@
-const projects = [
-  {
-    title: "Quality Management System Design",
-    context: "Sanatorio Allende Women's Center",
-    description:
-      "Designed a JCI-aligned QMS using SIPOC, defined quality indicators, and built a continuous improvement roadmap.",
-    outcomes: [
-      "Patient satisfaction: 94%",
-      "Service time: 46 min (target <60)",
-      "Compliance audit passed",
-    ],
-    skills: ["QMS design", "SIPOC", "Continuous improvement", "JCI standards"],
-  },
-  {
-    title: "Balanced Scorecard & KPI Dashboard",
-    context: "Prodeman S.A. (ManiKing brand)",
-    description:
-      "Conducted SWOT/PESTEL analysis. Designed KPIs with owners, formulas, and frequency. Built BI dashboards for performance tracking.",
-    outcomes: [
-      "Lead time reduction targeted",
-      "Training compliance ≥90%",
-      "COPQ -30% in 12 months",
-      "Repeat purchase ≥80%",
-    ],
-    skills: ["KPI design", "Balanced Scorecard", "SWOT/PESTEL", "BI dashboards"],
-  },
-  {
-    title: "Warehouse & Fulfillment Improvement",
-    context: "Wonder Hamburguesería",
-    description:
-      "Collected operational data, applied GUT matrix prioritization, mapped processes with flowcharts and 5W2H, and used Ishikawa for root cause analysis.",
-    outcomes: ["Prioritized action plan via REI matrix", "Process bottlenecks identified & addressed"],
-    skills: ["Process mapping", "Root cause analysis", "GUT/REI matrix", "5W2H"],
-  },
-  {
-    title: "Solar PV System Sizing",
-    context: "On-grid & Off-grid configurations",
-    description:
-      "Performed energy balance calculations and concept sizing for solar photovoltaic systems, including storage considerations for off-grid setups.",
-    outcomes: ["Energy balance completed", "Storage sizing defined"],
-    skills: ["Energy systems", "Technical sizing", "Sustainability"],
-  },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const ProjectsSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="projects" className="section-padding">
       <div className="max-w-6xl mx-auto">
         <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-12">
-          Featured Projects<span className="text-gold">.</span>
+          {t.projects.title}<span className="text-gold">.</span>
         </h2>
         <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((project) => (
+          {t.projects.items.map((project) => (
             <div
               key={project.title}
               className="group rounded-xl border border-border bg-background p-6 hover:shadow-md hover:border-gold/30 transition-all duration-300 flex flex-col"

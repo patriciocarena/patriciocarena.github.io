@@ -1,15 +1,11 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
-const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" },
-  { label: "Contact", href: "#contact" },
-];
+const navKeys = ["about", "projects", "skills", "experience", "contact"] as const;
 
 const Navbar = () => {
+  const { lang, setLang, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -17,12 +13,10 @@ const Navbar = () => {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 40);
-
-      const sections = navLinks.map((l) => l.href.slice(1));
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i]);
+      for (let i = navKeys.length - 1; i >= 0; i--) {
+        const el = document.getElementById(navKeys[i]);
         if (el && el.getBoundingClientRect().top <= 120) {
-          setActiveSection(sections[i]);
+          setActiveSection(navKeys[i]);
           return;
         }
       }
@@ -31,6 +25,12 @@ const Navbar = () => {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const navLinks = navKeys.map((key) => ({
+    label: t.nav[key],
+    href: `#${key}`,
+    key,
+  }));
 
   return (
     <nav
@@ -42,26 +42,31 @@ const Navbar = () => {
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
         <a href="#" className="font-display text-xl font-bold text-primary">
-          IE<span className="text-gold">.</span>
+          PC<span className="text-gold">.</span>
         </a>
 
         {/* Desktop */}
-        <ul className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-gold ${
-                  activeSection === link.href.slice(1)
-                    ? "text-gold"
-                    : "text-muted-foreground"
-                }`}
-              >
-                {link.label}
-              </a>
-            </li>
+            <a
+              key={link.key}
+              href={link.href}
+              className={`text-sm font-medium transition-colors hover:text-gold ${
+                activeSection === link.key ? "text-gold" : "text-muted-foreground"
+              }`}
+            >
+              {link.label}
+            </a>
           ))}
-        </ul>
+          <button
+            onClick={() => setLang(lang === "en" ? "es" : "en")}
+            className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-gold transition-colors ml-2"
+            aria-label="Switch language"
+          >
+            <Globe size={15} />
+            {lang === "en" ? "ES" : "EN"}
+          </button>
+        </div>
 
         {/* Mobile toggle */}
         <button
@@ -78,20 +83,27 @@ const Navbar = () => {
         <div className="md:hidden bg-background border-b border-border px-6 pb-4">
           <ul className="flex flex-col gap-3">
             {navLinks.map((link) => (
-              <li key={link.href}>
+              <li key={link.key}>
                 <a
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
                   className={`text-sm font-medium transition-colors hover:text-gold ${
-                    activeSection === link.href.slice(1)
-                      ? "text-gold"
-                      : "text-muted-foreground"
+                    activeSection === link.key ? "text-gold" : "text-muted-foreground"
                   }`}
                 >
                   {link.label}
                 </a>
               </li>
             ))}
+            <li>
+              <button
+                onClick={() => { setLang(lang === "en" ? "es" : "en"); setMobileOpen(false); }}
+                className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-gold transition-colors"
+              >
+                <Globe size={15} />
+                {lang === "en" ? "Español" : "English"}
+              </button>
+            </li>
           </ul>
         </div>
       )}
