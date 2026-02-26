@@ -6,8 +6,8 @@ const HeroSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="min-h-screen flex items-center section-padding pt-28 md:pt-20">
-      <div className="max-w-6xl mx-auto w-full grid md:grid-cols-[1fr_auto] gap-12 items-center">
+    <section className="min-h-[85vh] flex items-center section-padding pt-24 md:pt-16">
+      <div className="max-w-6xl mx-auto w-full grid md:grid-cols-[1fr_auto] gap-8 items-center">
         <div className="space-y-6">
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-tight">
             {t.hero.headline}{" "}

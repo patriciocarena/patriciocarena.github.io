@@ -6,10 +6,10 @@ const ProjectsSection = () => {
   return (
     <section id="projects" className="section-padding">
       <div className="max-w-6xl mx-auto">
-        <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-12">
+        <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-8">
           {t.projects.title}<span className="text-gold">.</span>
         </h2>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-5">
           {t.projects.items.map((project) => (
             <div
               key={project.title}
