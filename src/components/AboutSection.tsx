@@ -6,7 +6,7 @@ const AboutSection = () => {
 
   return (
     <section id="about" className="section-padding bg-cream">
-      <div className="max-w-3xl mx-auto space-y-8">
+      <div className="max-w-3xl mx-auto space-y-5">
         <h2 className="font-display text-3xl md:text-4xl font-bold text-primary">
           {t.about.title}<span className="text-gold">.</span>
         </h2>

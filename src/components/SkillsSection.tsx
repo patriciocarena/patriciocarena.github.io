@@ -9,7 +9,7 @@ const SkillsSection = () => {
   return (
     <section id="skills" className="section-padding bg-cream">
       <div className="max-w-6xl mx-auto">
-        <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-12">
+        <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-8">
           {t.skills.title}<span className="text-gold">.</span>
         </h2>
         <div className="grid md:grid-cols-3 gap-8">

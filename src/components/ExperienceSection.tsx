@@ -7,7 +7,7 @@ const ExperienceSection = () => {
   return (
     <section id="experience" className="section-padding">
       <div className="max-w-3xl mx-auto">
-        <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-12">
+        <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-8">
           {t.experience.title}<span className="text-gold">.</span>
         </h2>
         <div className="space-y-8 relative before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-px before:bg-border">
