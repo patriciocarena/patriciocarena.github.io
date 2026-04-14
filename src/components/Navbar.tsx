@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X, Globe, Sun, Moon } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { useTheme } from "next-themes";
 
 const navKeys = ["about", "projects", "skills", "experience", "contact"] as const;
 
 const Navbar = () => {
   const { lang, setLang, t } = useLanguage();
+  const { theme, setTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -66,6 +68,13 @@ const Navbar = () => {
             <Globe size={15} />
             {lang === "en" ? "ES" : "EN"}
           </button>
+          <button
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            className="text-muted-foreground hover:text-gold transition-colors ml-1"
+            aria-label="Toggle dark mode"
+          >
+            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+          </button>
         </div>
 
         {/* Mobile toggle */}
@@ -102,6 +111,15 @@ const Navbar = () => {
               >
                 <Globe size={15} />
                 {lang === "en" ? "Español" : "English"}
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => { setTheme(theme === "dark" ? "light" : "dark"); setMobileOpen(false); }}
+                className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-gold transition-colors"
+              >
+                {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+                {theme === "dark" ? "Light Mode" : "Dark Mode"}
               </button>
             </li>
           </ul>
