@@ -124,7 +124,7 @@ export const translations = {
           description:
             "Built an AI app where different AI personas react to your product, debate each other, and change their minds — like a real focus group. Built in 3 hours with Gemini models, Fastshot, and Google AI Studio.",
           team: "Alejandro Gonzalez, Franco Ascheri, Miranda Cavalie",
-          link: "https://www.linkedin.com/in/patricio-carena",
+          link: "https://www.linkedin.com/feed/update/urn:li:activity:7449534765713580033/",
         },
       ],
     },
@@ -277,7 +277,7 @@ export const translations = {
           description:
             "Construimos una app de IA donde distintas personas IA reaccionan a tu producto, debaten entre sí y cambian de opinión — como un focus group real. Construido en 3 horas con modelos Gemini, Fastshot y Google AI Studio.",
           team: "Alejandro Gonzalez, Franco Ascheri, Miranda Cavalie",
-          link: "https://www.linkedin.com/in/patricio-carena",
+          link: "https://www.linkedin.com/feed/update/urn:li:activity:7449534765713580033/",
         },
       ],
     },
