@@ -29,18 +29,18 @@ const ContactSection = () => {
   return (
     <section id="contact" className="section-padding">
       <div className="max-w-3xl mx-auto">
-        <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-2">
-          {t.contact.title}<span className="text-gold">.</span>
+        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-2">
+          {t.contact.title}<span className="text-neo-pink">.</span>
         </h2>
         <p className="text-muted-foreground text-lg mb-10">{t.contact.subtitle}</p>
 
         <div className="grid md:grid-cols-2 gap-10">
-          <div className="space-y-5">
+          <div className="neo-card bg-background p-5 space-y-5">
             <a
               href="mailto:patriciocarena.fin@gmail.com"
               className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
             >
-              <Mail size={16} className="text-gold" />
+              <Mail size={16} className="text-neo-blue" />
               patriciocarena.fin@gmail.com
             </a>
             <a
@@ -49,19 +49,19 @@ const ContactSection = () => {
               rel="noopener noreferrer"
               className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
             >
-              <Linkedin size={16} className="text-gold" />
+              <Linkedin size={16} className="text-neo-purple" />
               linkedin.com/in/patricio-carena
             </a>
             <div className="flex items-center gap-3 text-sm text-muted-foreground">
-              <Phone size={16} className="text-gold" />
+              <Phone size={16} className="text-neo-green" />
               +1 (415) 341-3531
             </div>
           </div>
 
           {submitted ? (
-            <div className="flex flex-col items-center justify-center text-center p-8 rounded-xl bg-muted">
-              <CheckCircle2 className="text-gold mb-3" size={40} />
-              <p className="font-semibold text-primary">{t.contact.sent}</p>
+            <div className="flex flex-col items-center justify-center text-center p-8 neo-card bg-neo-green/10">
+              <CheckCircle2 className="text-neo-green mb-3" size={40} />
+              <p className="font-bold text-primary">{t.contact.sent}</p>
               <p className="text-sm text-muted-foreground mt-1">{t.contact.sentSub}</p>
             </div>
           ) : (
@@ -72,9 +72,9 @@ const ContactSection = () => {
                   type="text"
                   placeholder={t.contact.namePlaceholder}
                   maxLength={100}
-                  className="w-full px-4 py-3 rounded-lg border border-border bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-gold/40 transition"
+                  className="w-full px-4 py-3 neo-input bg-background text-sm text-foreground placeholder:text-muted-foreground"
                 />
-                {errors.name && <p className="text-xs text-destructive mt-1">{errors.name}</p>}
+                {errors.name && <p className="text-xs text-destructive mt-1 font-bold">{errors.name}</p>}
               </div>
               <div>
                 <input
@@ -82,9 +82,9 @@ const ContactSection = () => {
                   type="email"
                   placeholder={t.contact.emailPlaceholder}
                   maxLength={255}
-                  className="w-full px-4 py-3 rounded-lg border border-border bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-gold/40 transition"
+                  className="w-full px-4 py-3 neo-input bg-background text-sm text-foreground placeholder:text-muted-foreground"
                 />
-                {errors.email && <p className="text-xs text-destructive mt-1">{errors.email}</p>}
+                {errors.email && <p className="text-xs text-destructive mt-1 font-bold">{errors.email}</p>}
               </div>
               <div>
                 <textarea
@@ -92,13 +92,13 @@ const ContactSection = () => {
                   rows={4}
                   placeholder={t.contact.messagePlaceholder}
                   maxLength={1000}
-                  className="w-full px-4 py-3 rounded-lg border border-border bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-gold/40 transition resize-none"
+                  className="w-full px-4 py-3 neo-input bg-background text-sm text-foreground placeholder:text-muted-foreground resize-none"
                 />
-                {errors.message && <p className="text-xs text-destructive mt-1">{errors.message}</p>}
+                {errors.message && <p className="text-xs text-destructive mt-1 font-bold">{errors.message}</p>}
               </div>
               <button
                 type="submit"
-                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium text-sm hover:opacity-90 transition-opacity"
+                className="neo-btn inline-flex items-center gap-2 bg-neo-pink text-white px-6 py-3 text-sm"
               >
                 <Send size={14} />
                 {t.contact.send}

@@ -36,25 +36,25 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-150 ${
         scrolled
-          ? "bg-background/95 backdrop-blur-md shadow-sm border-b border-border"
+          ? "bg-background border-b-[3px] border-foreground"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-        <a href="#" className="font-display text-xl font-bold text-primary">
-          PC<span className="text-gold">.</span>
+        <a href="#" className="text-2xl font-bold text-primary tracking-tight">
+          PC<span className="text-neo-pink">.</span>
         </a>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <a
               key={link.key}
               href={link.href}
-              className={`text-sm font-medium transition-colors hover:text-gold ${
-                activeSection === link.key ? "text-gold" : "text-muted-foreground"
+              className={`text-xs font-bold uppercase tracking-wider transition-colors hover:text-neo-pink ${
+                activeSection === link.key ? "text-neo-pink" : "text-muted-foreground"
               }`}
             >
               {link.label}
@@ -62,42 +62,42 @@ const Navbar = () => {
           ))}
           <button
             onClick={() => setLang(lang === "en" ? "es" : "en")}
-            className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-gold transition-colors ml-2"
+            className="neo-border px-2 py-1 flex items-center gap-1.5 text-xs font-bold text-foreground hover:bg-neo-yellow transition-colors"
             aria-label="Switch language"
           >
-            <Globe size={15} />
+            <Globe size={14} />
             {lang === "en" ? "ES" : "EN"}
           </button>
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="text-muted-foreground hover:text-gold transition-colors ml-1"
+            className="neo-border px-2 py-1 text-foreground hover:bg-neo-purple hover:text-white transition-colors"
             aria-label="Toggle dark mode"
           >
-            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+            {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
           </button>
         </div>
 
         {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-primary p-2"
+          className="md:hidden text-primary p-2 neo-border"
           aria-label="Toggle menu"
         >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-background border-b border-border px-6 pb-4">
+        <div className="md:hidden bg-background border-b-[3px] border-foreground px-6 pb-4">
           <ul className="flex flex-col gap-3">
             {navLinks.map((link) => (
               <li key={link.key}>
                 <a
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className={`text-sm font-medium transition-colors hover:text-gold ${
-                    activeSection === link.key ? "text-gold" : "text-muted-foreground"
+                  className={`text-xs font-bold uppercase tracking-wider transition-colors hover:text-neo-pink ${
+                    activeSection === link.key ? "text-neo-pink" : "text-muted-foreground"
                   }`}
                 >
                   {link.label}
@@ -107,18 +107,18 @@ const Navbar = () => {
             <li>
               <button
                 onClick={() => { setLang(lang === "en" ? "es" : "en"); setMobileOpen(false); }}
-                className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-gold transition-colors"
+                className="neo-border px-2 py-1 flex items-center gap-1.5 text-xs font-bold text-foreground hover:bg-neo-yellow transition-colors"
               >
-                <Globe size={15} />
+                <Globe size={14} />
                 {lang === "en" ? "Español" : "English"}
               </button>
             </li>
             <li>
               <button
                 onClick={() => { setTheme(theme === "dark" ? "light" : "dark"); setMobileOpen(false); }}
-                className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-gold transition-colors"
+                className="neo-border px-2 py-1 flex items-center gap-1.5 text-xs font-bold text-foreground hover:bg-neo-purple hover:text-white transition-colors"
               >
-                {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
+                {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
                 {theme === "dark" ? "Light Mode" : "Dark Mode"}
               </button>
             </li>

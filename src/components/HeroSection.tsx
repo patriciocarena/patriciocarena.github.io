@@ -2,6 +2,15 @@ import { Download, Mail } from "lucide-react";
 import headshot from "@/assets/headshot.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
 
+const tagColors = [
+  "bg-neo-blue text-white",
+  "bg-neo-pink text-white",
+  "bg-neo-green text-white",
+  "bg-neo-orange text-white",
+  "bg-neo-purple text-white",
+  "bg-neo-yellow text-black",
+];
+
 const HeroSection = () => {
   const { t } = useLanguage();
 
@@ -9,7 +18,7 @@ const HeroSection = () => {
     <section className="min-h-[85vh] flex items-center section-padding pt-24 md:pt-16">
       <div className="max-w-6xl mx-auto w-full grid md:grid-cols-[1fr_auto] gap-8 items-center">
         <div className="space-y-6">
-          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-tight">
             {t.hero.headline}{" "}
             <span className="text-gradient-gold">{t.hero.headlineSub}</span>
           </h1>
@@ -20,24 +29,24 @@ const HeroSection = () => {
             <a
               href="/CV.pdf"
               download
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium text-sm hover:opacity-90 transition-opacity"
+              className="neo-btn inline-flex items-center gap-2 bg-neo-pink text-white px-6 py-3 text-sm"
             >
               <Download size={16} />
               {t.hero.downloadCV}
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 border-2 border-primary text-primary px-6 py-3 rounded-lg font-medium text-sm hover:bg-primary hover:text-primary-foreground transition-colors"
+              className="neo-btn inline-flex items-center gap-2 bg-neo-yellow text-black px-6 py-3 text-sm"
             >
               <Mail size={16} />
               {t.hero.connect}
             </a>
           </div>
           <div className="flex flex-wrap gap-2 pt-2">
-            {t.hero.chips.map((chip) => (
+            {t.hero.chips.map((chip, i) => (
               <span
                 key={chip}
-                className="text-xs font-medium px-3 py-1.5 rounded-full bg-gold-muted text-accent-foreground border border-gold-subtle"
+                className={`neo-tag ${tagColors[i % tagColors.length]}`}
               >
                 {chip}
               </span>
@@ -45,7 +54,7 @@ const HeroSection = () => {
           </div>
         </div>
         <div className="hidden md:block">
-          <div className="w-64 h-80 rounded-2xl overflow-hidden border-4 border-gold/20 shadow-lg">
+          <div className="w-64 h-80 overflow-hidden neo-card">
             <img src={headshot} alt="Patricio Carena" className="w-full h-full object-cover" />
           </div>
         </div>
