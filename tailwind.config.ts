@@ -14,8 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        display: ['Playfair Display', 'serif'],
+        sans: ['Space Grotesk', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -61,6 +60,14 @@ export default {
           muted: "hsl(var(--gold-muted))",
         },
         cream: "hsl(var(--cream))",
+        neo: {
+          pink: "hsl(var(--neo-pink))",
+          blue: "hsl(var(--neo-blue))",
+          yellow: "hsl(var(--neo-yellow))",
+          green: "hsl(var(--neo-green))",
+          orange: "hsl(var(--neo-orange))",
+          purple: "hsl(var(--neo-purple))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -74,8 +81,8 @@ export default {
       },
       borderRadius: {
         lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        md: "calc(var(--radius) - 1px)",
+        sm: "0px",
       },
       keyframes: {
         "accordion-down": {

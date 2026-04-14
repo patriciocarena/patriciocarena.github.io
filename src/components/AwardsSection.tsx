@@ -7,22 +7,22 @@ const AwardsSection = () => {
   return (
     <section id="awards" className="section-padding bg-cream">
       <div className="max-w-3xl mx-auto">
-        <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-8">
-          {t.awards.title}<span className="text-gold">.</span>
+        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-8">
+          {t.awards.title}<span className="text-neo-yellow">.</span>
         </h2>
         <div className="space-y-6">
           {t.awards.items.map((item, i) => (
             <div
               key={i}
-              className="flex items-start gap-4 bg-background rounded-lg border border-border p-5"
+              className="flex items-start gap-4 bg-background neo-card p-5"
             >
-              <Award className="text-gold shrink-0 mt-0.5" size={20} />
+              <Award className="text-neo-yellow shrink-0 mt-0.5" size={20} />
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2 flex-wrap">
-                  <h3 className="font-semibold text-primary text-sm">
+                  <h3 className="font-bold text-primary text-sm">
                     {item.title}
                   </h3>
-                  <span className="text-xs text-gold font-medium bg-gold/10 px-2 py-0.5 rounded-full">
+                  <span className="neo-tag bg-neo-green text-white">
                     {item.placement}
                   </span>
                 </div>
@@ -32,7 +32,7 @@ const AwardsSection = () => {
                 </p>
                 {item.team && (
                   <p className="text-xs text-muted-foreground">
-                    <span className="font-medium text-primary">{t.awards.teamLabel}:</span>{" "}
+                    <span className="font-bold text-primary">{t.awards.teamLabel}:</span>{" "}
                     {item.team}
                   </p>
                 )}
@@ -41,7 +41,7 @@ const AwardsSection = () => {
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-xs text-gold hover:underline mt-1"
+                    className="inline-flex items-center gap-1 text-xs text-neo-blue font-bold hover:underline mt-1"
                   >
                     LinkedIn <ExternalLink size={12} />
                   </a>

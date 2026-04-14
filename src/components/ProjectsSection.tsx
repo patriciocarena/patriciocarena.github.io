@@ -1,24 +1,32 @@
 import { useLanguage } from "@/i18n/LanguageContext";
 
+const contextColors = [
+  "text-neo-pink",
+  "text-neo-blue",
+  "text-neo-green",
+  "text-neo-orange",
+  "text-neo-purple",
+];
+
 const ProjectsSection = () => {
   const { t } = useLanguage();
 
   return (
     <section id="projects" className="section-padding">
       <div className="max-w-6xl mx-auto">
-        <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-8">
-          {t.projects.title}<span className="text-gold">.</span>
+        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-8">
+          {t.projects.title}<span className="text-neo-blue">.</span>
         </h2>
         <div className="grid md:grid-cols-2 gap-5">
-          {t.projects.items.map((project) => (
+          {t.projects.items.map((project, i) => (
             <div
               key={project.title}
-              className="group rounded-xl border border-border bg-background p-6 hover:shadow-md hover:border-gold/30 transition-all duration-300 flex flex-col"
+              className="neo-card bg-background p-6 flex flex-col hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-150"
             >
-              <p className="text-xs font-medium text-gold uppercase tracking-wider mb-1">
+              <p className={`text-xs font-bold uppercase tracking-wider mb-1 ${contextColors[i % contextColors.length]}`}>
                 {project.context}
               </p>
-              <h3 className="font-display text-xl font-bold text-primary mb-3">{project.title}</h3>
+              <h3 className="text-xl font-bold text-primary mb-3">{project.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">
                 {project.description}
               </p>
@@ -26,17 +34,17 @@ const ProjectsSection = () => {
                 <ul className="mb-4 space-y-1">
                   {project.outcomes.map((o) => (
                     <li key={o} className="text-sm text-primary flex items-start gap-2">
-                      <span className="text-gold mt-1">▸</span>
+                      <span className="text-neo-green mt-1 font-bold">▸</span>
                       {o}
                     </li>
                   ))}
                 </ul>
               )}
-              <div className="flex flex-wrap gap-1.5 pt-3 border-t border-border">
+              <div className="flex flex-wrap gap-1.5 pt-3 border-t-[3px] border-foreground">
                 {project.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="text-xs px-2.5 py-1 rounded-full bg-muted text-muted-foreground font-medium"
+                    className="neo-tag bg-muted text-foreground"
                   >
                     {skill}
                   </span>
