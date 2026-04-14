@@ -119,7 +119,7 @@ export const translations = {
       items: [
         {
           title: "Stanford × DeepMind Hackathon",
-          placement: "4th Place",
+          placement: "4th Place — $5,000 in GCP Tokens",
           event: "Stanford University & Google DeepMind — 100+ teams, judged by 50+ VCs and industry leaders",
           description:
             "Built an AI app where different AI personas react to your product, debate each other, and change their minds — like a real focus group. Built in 3 hours with Gemini models, Fastshot, and Google AI Studio.",
@@ -272,7 +272,7 @@ export const translations = {
       items: [
         {
           title: "Stanford × DeepMind Hackathon",
-          placement: "4to Puesto",
+          placement: "4to Puesto — $5.000 en Tokens GCP",
           event: "Stanford University & Google DeepMind — 100+ equipos, evaluados por 50+ VCs y líderes de la industria",
           description:
             "Construimos una app de IA donde distintas personas IA reaccionan a tu producto, debaten entre sí y cambian de opinión — como un focus group real. Construido en 3 horas con modelos Gemini, Fastshot y Google AI Studio.",
