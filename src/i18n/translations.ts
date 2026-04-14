@@ -113,6 +113,21 @@ export const translations = {
         },
       ],
     },
+    awards: {
+      title: "Awards & Recognition",
+      teamLabel: "Team",
+      items: [
+        {
+          title: "Stanford × DeepMind Hackathon",
+          placement: "4th Place",
+          event: "Stanford University & Google DeepMind — 100+ teams, judged by 50+ VCs and industry leaders",
+          description:
+            "Built an AI app where different AI personas react to your product, debate each other, and change their minds — like a real focus group. Built in 3 hours with Gemini models, Fastshot, and Google AI Studio.",
+          team: "Alejandro Gonzalez, Franco Ascheri, Miranda Cavalie",
+          link: "https://www.linkedin.com/in/patricio-carena",
+        },
+      ],
+    },
     leadership: {
       title: "Leadership & Activities",
       rugby:
@@ -248,6 +263,21 @@ export const translations = {
           period: "Dic 2023 – Mar 2024",
           description:
             "Fortalecí adaptabilidad, responsabilidad y resolución de problemas interculturales trabajando en entornos exigentes en el exterior.",
+        },
+      ],
+    },
+    awards: {
+      title: "Premios y Reconocimientos",
+      teamLabel: "Equipo",
+      items: [
+        {
+          title: "Stanford × DeepMind Hackathon",
+          placement: "4to Puesto",
+          event: "Stanford University & Google DeepMind — 100+ equipos, evaluados por 50+ VCs y líderes de la industria",
+          description:
+            "Construimos una app de IA donde distintas personas IA reaccionan a tu producto, debaten entre sí y cambian de opinión — como un focus group real. Construido en 3 horas con modelos Gemini, Fastshot y Google AI Studio.",
+          team: "Alejandro Gonzalez, Franco Ascheri, Miranda Cavalie",
+          link: "https://www.linkedin.com/in/patricio-carena",
         },
       ],
     },
