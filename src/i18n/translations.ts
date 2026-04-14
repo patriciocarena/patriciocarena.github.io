@@ -105,18 +105,18 @@ export const translations = {
             "Leading the implementation of a new inventory and procurement system for a biotech lab, optimizing storage layouts and enabling real-time tracking of materials — especially critical for hazmat compliance and safety protocols.",
         },
         {
-          role: "Sales Representative",
-          company: "Royal Prestige",
-          period: "Jan – May 2022",
-          description:
-            "Developed communication and follow-up skills through product demos, client relationship management, and disciplined sales processes.",
-        },
-        {
           role: "Hospitality & Construction",
           company: "International Work Experience — Australia",
           period: "Dec 2023 – Mar 2024",
           description:
             "Built adaptability, reliability, and cross-cultural problem-solving while working in fast-paced environments abroad.",
+        },
+        {
+          role: "Sales Representative",
+          company: "Royal Prestige",
+          period: "Jan – May 2022",
+          description:
+            "Developed communication and follow-up skills through product demos, client relationship management, and disciplined sales processes.",
         },
       ],
     },
@@ -265,18 +265,18 @@ export const translations = {
             "Liderando la implementación de un nuevo sistema de inventario y compras para un laboratorio de biotecnología, optimizando la distribución de espacios y habilitando el seguimiento en tiempo real de materiales — especialmente crítico para el cumplimiento de normativas de materiales peligrosos (hazmats).",
         },
         {
-          role: "Representante de Ventas",
-          company: "Royal Prestige",
-          period: "Ene – May 2022",
-          description:
-            "Desarrollé habilidades de comunicación y seguimiento a través de demostraciones de producto, gestión de relaciones con clientes y procesos de venta disciplinados.",
-        },
-        {
           role: "Hotelería y Construcción",
           company: "Experiencia Laboral Internacional — Australia",
           period: "Dic 2023 – Mar 2024",
           description:
             "Fortalecí adaptabilidad, responsabilidad y resolución de problemas interculturales trabajando en entornos exigentes en el exterior.",
+        },
+        {
+          role: "Representante de Ventas",
+          company: "Royal Prestige",
+          period: "Ene – May 2022",
+          description:
+            "Desarrollé habilidades de comunicación y seguimiento a través de demostraciones de producto, gestión de relaciones con clientes y procesos de venta disciplinados.",
         },
       ],
     },
