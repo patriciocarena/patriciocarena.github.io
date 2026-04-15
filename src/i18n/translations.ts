@@ -85,7 +85,7 @@ export const translations = {
         },
         {
           title: "Tools",
-          items: ["Claude Code", "Codex"],
+          items: ["Claude Code", "Codex", "Google AI Studio"],
         },
         {
           title: "Languages",
@@ -244,7 +244,7 @@ export const translations = {
         },
         {
           title: "Herramientas",
-          items: ["Claude Code", "Codex"],
+          items: ["Claude Code", "Codex", "Google AI Studio"],
         },
         {
           title: "Idiomas",
