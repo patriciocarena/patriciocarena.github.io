@@ -20,10 +20,10 @@ export const translations = {
     },
     about: {
       title: "About",
-      bio: "I'm an Industrial Engineering student from Córdoba, Argentina, currently on academic exchange at the University of San Francisco. I specialize in quality management systems, KPI design, and process improvement using tools like PDCA, Ishikawa, and 5W2H. I combine engineering rigor with a collaborative mindset and a strong drive to deliver measurable results.",
+      bio: "Industrial Engineering student (4th year, UCC Argentina) on academic exchange at USF in San Francisco. Hands-on experience implementing inventory and procurement systems in a biotech lab with hazmat compliance requirements. 4th place at the Stanford × DeepMind Hackathon.",
       lookingTitle: "What I'm looking for",
       lookingText:
-        "Internships or entry-level roles in Operations, Quality Engineering, Supply Chain, Analytics, or AI-enabled operations tools — where I can apply structured problem-solving and continuous improvement methodologies.",
+        "Roles where I can apply process improvement, data-driven decision-making, and operational design in fast-moving environments.",
     },
     projects: {
       title: "Featured Projects",
@@ -104,18 +104,18 @@ export const translations = {
             "Leading the implementation of a new inventory and procurement system for a biotech lab, optimizing storage layouts and enabling real-time tracking of materials — especially critical for hazmat compliance and safety protocols.",
         },
         {
-          role: "Hospitality & Construction",
-          company: "International Work Experience — Australia",
+          role: "Restaurant Server",
+          company: "Italian Restaurant — Sydney, Australia",
           period: "Dec 2023 – Mar 2024",
           description:
-            "Built adaptability, reliability, and cross-cultural problem-solving while working in fast-paced environments abroad.",
+            "Managed a 12-table section at a small Italian restaurant in Sydney, handling orders, service, bar support, and closing duties. Worked full summer season in a fast-paced environment with minimal supervision.",
         },
         {
           role: "Sales Representative",
-          company: "Royal Prestige",
+          company: "Royal Prestige — Córdoba",
           period: "Jan – May 2022",
           description:
-            "Developed communication and follow-up skills through product demos, client relationship management, and disciplined sales processes.",
+            "Conducted 10+ live product demonstrations of premium cookware lines (avg. ticket ~$200+). Generated ~$1,000 in sales through in-home demos, objection handling, and structured follow-up sequences.",
         },
       ],
     },
@@ -179,10 +179,10 @@ export const translations = {
     },
     about: {
       title: "Sobre mí",
-      bio: "Soy estudiante de Ingeniería Industrial de Córdoba, Argentina, actualmente en intercambio académico en la University of San Francisco. Me especializo en sistemas de gestión de calidad, diseño de KPIs y mejora de procesos usando herramientas como PDCA, Ishikawa y 5W2H. Combino rigor ingenieril con mentalidad colaborativa y fuerte orientación a resultados medibles.",
+      bio: "Estudiante de Ingeniería Industrial (4to año, UCC Argentina) en intercambio académico en USF, San Francisco. Experiencia práctica implementando sistemas de inventario y compras en un laboratorio de biotecnología con requisitos de cumplimiento de materiales peligrosos. 4to puesto en el Stanford × DeepMind Hackathon.",
       lookingTitle: "Qué estoy buscando",
       lookingText:
-        "Pasantías o roles junior en Operaciones, Ingeniería de Calidad, Supply Chain, Analítica o herramientas de operaciones con IA — donde pueda aplicar resolución estructurada de problemas y metodologías de mejora continua.",
+        "Roles donde pueda aplicar mejora de procesos, toma de decisiones basada en datos y diseño operacional en entornos dinámicos.",
     },
     projects: {
       title: "Proyectos Destacados",
@@ -263,18 +263,18 @@ export const translations = {
             "Liderando la implementación de un nuevo sistema de inventario y compras para un laboratorio de biotecnología, optimizando la distribución de espacios y habilitando el seguimiento en tiempo real de materiales — especialmente crítico para el cumplimiento de normativas de materiales peligrosos (hazmats).",
         },
         {
-          role: "Hotelería y Construcción",
-          company: "Experiencia Laboral Internacional — Australia",
+          role: "Mozo / Camarero",
+          company: "Restaurante Italiano — Sídney, Australia",
           period: "Dic 2023 – Mar 2024",
           description:
-            "Fortalecí adaptabilidad, responsabilidad y resolución de problemas interculturales trabajando en entornos exigentes en el exterior.",
+            "Gestioné una sección de 12 mesas en un restaurante italiano en Sídney, manejando pedidos, servicio, apoyo en barra y tareas de cierre. Trabajé la temporada completa de verano en un entorno de alto ritmo con supervisión mínima.",
         },
         {
           role: "Representante de Ventas",
-          company: "Royal Prestige",
+          company: "Royal Prestige — Córdoba",
           period: "Ene – May 2022",
           description:
-            "Desarrollé habilidades de comunicación y seguimiento a través de demostraciones de producto, gestión de relaciones con clientes y procesos de venta disciplinados.",
+            "Realicé más de 10 demostraciones en vivo de líneas premium de utensilios de cocina (ticket promedio ~$200+). Generé ~$1,000 en ventas a través de demos a domicilio, manejo de objeciones y secuencias de seguimiento estructuradas.",
         },
       ],
     },
