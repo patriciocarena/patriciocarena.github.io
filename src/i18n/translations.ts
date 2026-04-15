@@ -77,7 +77,6 @@ export const translations = {
         {
           title: "Analytics & Ops",
           items: [
-            "Advanced Excel (Power Query, PivotTables, Dashboards)",
             "KPI design & data reporting",
             "PDCA, process mapping",
             "Root cause analysis (Ishikawa)",
@@ -86,7 +85,7 @@ export const translations = {
         },
         {
           title: "Tools",
-          items: ["Microsoft Excel (advanced)", "AutoCAD (basic–intermediate)", "C++ (intermediate)"],
+          items: ["Claude Code", "Codex"],
         },
         {
           title: "Languages",
@@ -237,7 +236,6 @@ export const translations = {
         {
           title: "Analítica y Operaciones",
           items: [
-            "Excel avanzado (Power Query, Tablas dinámicas, Dashboards)",
             "Diseño de KPIs y reportes de datos",
             "PDCA, mapeo de procesos",
             "Análisis de causa raíz (Ishikawa)",
@@ -246,7 +244,7 @@ export const translations = {
         },
         {
           title: "Herramientas",
-          items: ["Microsoft Excel (avanzado)", "AutoCAD (básico–intermedio)", "C++ (intermedio)"],
+          items: ["Claude Code", "Codex"],
         },
         {
           title: "Idiomas",
