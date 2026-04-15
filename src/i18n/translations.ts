@@ -16,7 +16,7 @@ export const translations = {
         "Industrial Engineering student at Universidad Católica de Córdoba | USF academic exchange (San Francisco) | Building KPI dashboards, quality systems, and process improvements.",
       downloadCV: "Download CV",
       connect: "Let's Connect",
-      chips: ["ISO 9001 fundamentals", "KPI dashboards", "Process improvement (PDCA, RCA)"],
+      chips: ["Process Optimization", "Data Visualization", "Continuous Improvement"],
     },
     about: {
       title: "About",
@@ -175,7 +175,7 @@ export const translations = {
         "Estudiante de Ingeniería Industrial en la Universidad Católica de Córdoba | Intercambio académico en USF (San Francisco) | Construyendo dashboards de KPIs, sistemas de calidad y mejoras de procesos.",
       downloadCV: "Descargar CV",
       connect: "Conectemos",
-      chips: ["Fundamentos ISO 9001", "Dashboards de KPIs", "Mejora de procesos (PDCA, RCA)"],
+      chips: ["Optimización de procesos", "Visualización de Datos", "Mejora Continua"],
     },
     about: {
       title: "Sobre mí",
