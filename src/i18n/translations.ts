@@ -99,7 +99,7 @@ export const translations = {
         {
           role: "Industrial Engineering Intern",
           company: "Frontier Tower — BioPunk (Biotech/Neuroscience)",
-          period: "Mar 2026 – Present",
+          period: "Feb 2026 – Jun 2026",
           description:
             "Leading the implementation of a new inventory and procurement system for a biotech lab, optimizing storage layouts and enabling real-time tracking of materials — especially critical for hazmat compliance and safety protocols.",
         },
@@ -258,7 +258,7 @@ export const translations = {
         {
           role: "Pasante de Ingeniería Industrial",
           company: "Frontier Tower — BioPunk (Biotech/Neurociencia)",
-          period: "Mar 2026 – Presente",
+          period: "Feb 2026 – Jun 2026",
           description:
             "Liderando la implementación de un nuevo sistema de inventario y compras para un laboratorio de biotecnología, optimizando la distribución de espacios y habilitando el seguimiento en tiempo real de materiales — especialmente crítico para el cumplimiento de normativas de materiales peligrosos (hazmats).",
         },
