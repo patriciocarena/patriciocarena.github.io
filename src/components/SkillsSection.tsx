@@ -1,23 +1,25 @@
 import { BarChart3, Wrench, Globe } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const icons = [BarChart3, Wrench, Globe];
 const headerColors = ["bg-neo-pink", "bg-neo-yellow", "bg-neo-blue"];
 
 const SkillsSection = () => {
   const { t } = useLanguage();
+  const { ref, isVisible } = useScrollReveal<HTMLDivElement>();
 
   return (
     <section id="skills" className="section-padding bg-cream">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-8">
+      <div ref={ref} className="max-w-6xl mx-auto">
+        <h2 className={`text-3xl md:text-4xl font-bold text-primary mb-8 reveal ${isVisible ? "visible" : ""}`}>
           {t.skills.title}<span className="text-neo-green">.</span>
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
           {t.skills.columns.map((col, i) => {
             const Icon = icons[i];
             return (
-              <div key={col.title} className="neo-card bg-background overflow-hidden">
+              <div key={col.title} className={`neo-card bg-background overflow-hidden hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-150 reveal stagger-${i + 1} ${isVisible ? "visible" : ""}`}>
                 <div className={`px-4 py-3 ${headerColors[i]} border-b-[3px] border-foreground`}>
                   <div className="flex items-center gap-3">
                     <Icon className="text-black" size={20} />

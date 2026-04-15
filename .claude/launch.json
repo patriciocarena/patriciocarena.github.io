@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dev",
+      "runtimeExecutable": "/Users/mauriciocarenanew/.npm-global/bin/npx",
+      "runtimeArgs": ["vite", "--host"],
+      "port": 8080
+    }
+  ]
+}

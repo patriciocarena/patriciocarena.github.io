@@ -42,6 +42,7 @@ const Navbar = () => {
           : "bg-transparent"
       }`}
     >
+      <div className="nav-color-bar" />
       <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
         <a href="#" className="text-2xl font-bold text-primary tracking-tight">
           PC<span className="text-neo-pink">.</span>

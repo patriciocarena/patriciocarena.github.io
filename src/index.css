@@ -191,4 +191,119 @@
     letter-spacing: 0.08em;
     padding: 0.25rem 0.75rem;
   }
+
+  /* Scroll reveal animations */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .stagger-1 { transition-delay: 0.1s; }
+  .stagger-2 { transition-delay: 0.2s; }
+  .stagger-3 { transition-delay: 0.3s; }
+  .stagger-4 { transition-delay: 0.4s; }
+}
+
+/* Floating shapes animation */
+@keyframes float-drift {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(30px, -40px) rotate(90deg);
+  }
+  50% {
+    transform: translate(-20px, -80px) rotate(180deg);
+  }
+  75% {
+    transform: translate(40px, -40px) rotate(270deg);
+  }
+}
+
+/* Hero entrance */
+@keyframes hero-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(40px) rotate(3deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+.hero-animate {
+  animation: hero-slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-animate-delay-1 {
+  animation: hero-slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+}
+
+.hero-animate-delay-2 {
+  animation: hero-slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+.hero-animate-delay-3 {
+  animation: hero-slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
+}
+
+.hero-photo-animate {
+  animation: hero-slide-right 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+}
+
+/* Navbar top color bar */
+.nav-color-bar {
+  height: 4px;
+  background: linear-gradient(
+    90deg,
+    hsl(var(--neo-pink)) 0%,
+    hsl(var(--neo-orange)) 20%,
+    hsl(var(--neo-yellow)) 40%,
+    hsl(var(--neo-green)) 60%,
+    hsl(var(--neo-blue)) 80%,
+    hsl(var(--neo-purple)) 100%
+  );
 }
