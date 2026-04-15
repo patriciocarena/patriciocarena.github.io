@@ -1,4 +1,5 @@
 import { useLanguage } from "@/i18n/LanguageContext";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const contextColors = [
   "text-neo-pink",
@@ -10,18 +11,19 @@ const contextColors = [
 
 const ProjectsSection = () => {
   const { t } = useLanguage();
+  const { ref, isVisible } = useScrollReveal<HTMLDivElement>();
 
   return (
     <section id="projects" className="section-padding">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-10">
+      <div ref={ref} className="max-w-6xl mx-auto">
+        <h2 className={`text-3xl md:text-4xl font-bold text-primary mb-10 reveal ${isVisible ? "visible" : ""}`}>
           {t.projects.title}<span className="text-neo-blue">.</span>
         </h2>
         <div className="grid md:grid-cols-2 gap-7">
           {t.projects.items.map((project, i) => (
             <div
               key={project.title}
-              className="neo-card bg-background p-6 flex flex-col hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-150"
+              className={`neo-card bg-background p-6 flex flex-col hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-150 reveal stagger-${i + 1} ${isVisible ? "visible" : ""}`}
             >
               <p className={`text-xs font-bold uppercase tracking-wider mb-2 ${contextColors[i % contextColors.length]}`}>
                 {project.context}

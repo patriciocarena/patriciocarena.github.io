@@ -10,12 +10,14 @@ import LeadershipSection from "@/components/LeadershipSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
+import FloatingShapes from "@/components/FloatingShapes";
 
 const Index = () => {
   return (
     <LanguageProvider>
+      <FloatingShapes />
       <Navbar />
-      <main>
+      <main className="relative z-10">
         <HeroSection />
         <AboutSection />
         <ProjectsSection />

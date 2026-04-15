@@ -1,20 +1,22 @@
 import { Award, ExternalLink } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const AwardsSection = () => {
   const { t } = useLanguage();
+  const { ref, isVisible } = useScrollReveal<HTMLDivElement>();
 
   return (
     <section id="awards" className="section-padding bg-cream">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-8">
+      <div ref={ref} className="max-w-3xl mx-auto">
+        <h2 className={`text-3xl md:text-4xl font-bold text-primary mb-8 reveal ${isVisible ? "visible" : ""}`}>
           {t.awards.title}<span className="text-neo-yellow">.</span>
         </h2>
         <div className="space-y-6">
           {t.awards.items.map((item, i) => (
             <div
               key={i}
-              className="flex items-start gap-4 bg-background neo-card p-5"
+              className={`flex items-start gap-4 bg-background neo-card p-5 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-150 reveal stagger-1 ${isVisible ? "visible" : ""}`}
             >
               <Award className="text-neo-yellow shrink-0 mt-0.5" size={20} />
               <div className="space-y-1.5">

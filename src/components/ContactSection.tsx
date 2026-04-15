@@ -1,11 +1,13 @@
 import { useState, type FormEvent } from "react";
 import { Mail, Linkedin, Phone, Send, CheckCircle2 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const ContactSection = () => {
   const { t } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const { ref, isVisible } = useScrollReveal<HTMLDivElement>();
 
   const validate = (form: FormData) => {
     const errs: Record<string, string> = {};
@@ -28,14 +30,14 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="section-padding">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-2">
+      <div ref={ref} className="max-w-3xl mx-auto">
+        <h2 className={`text-3xl md:text-4xl font-bold text-primary mb-2 reveal ${isVisible ? "visible" : ""}`}>
           {t.contact.title}<span className="text-neo-pink">.</span>
         </h2>
-        <p className="text-muted-foreground text-lg mb-10">{t.contact.subtitle}</p>
+        <p className={`text-muted-foreground text-lg mb-10 reveal stagger-1 ${isVisible ? "visible" : ""}`}>{t.contact.subtitle}</p>
 
         <div className="grid md:grid-cols-2 gap-10">
-          <div className="neo-card bg-background p-5 space-y-5">
+          <div className={`neo-card bg-background p-5 space-y-5 reveal stagger-2 ${isVisible ? "visible" : ""}`}>
             <a
               href="mailto:patriciocarena.fin@gmail.com"
               className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"

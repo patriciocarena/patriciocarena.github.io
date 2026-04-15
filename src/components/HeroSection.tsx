@@ -15,17 +15,17 @@ const HeroSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="min-h-[85vh] flex items-center section-padding pt-24 md:pt-16">
+    <section className="min-h-[85vh] flex items-center section-padding pt-24 md:pt-16 relative overflow-hidden">
       <div className="max-w-6xl mx-auto w-full grid md:grid-cols-[1fr_auto] gap-8 items-center">
         <div className="space-y-6">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-tight">
+          <h1 className="hero-animate text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-tight">
             {t.hero.headline}{" "}
             <span className="text-gradient-gold">{t.hero.headlineSub}</span>
           </h1>
-          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl leading-relaxed">
+          <p className="hero-animate-delay-1 text-muted-foreground text-lg md:text-xl max-w-2xl leading-relaxed">
             {t.hero.subheadline}
           </p>
-          <div className="flex flex-wrap gap-3 pt-2">
+          <div className="hero-animate-delay-2 flex flex-wrap gap-3 pt-2">
             <a
               href="/CV.pdf"
               download
@@ -42,7 +42,7 @@ const HeroSection = () => {
               {t.hero.connect}
             </a>
           </div>
-          <div className="flex flex-wrap gap-2 pt-2">
+          <div className="hero-animate-delay-3 flex flex-wrap gap-2 pt-2">
             {t.hero.chips.map((chip, i) => (
               <span
                 key={chip}
@@ -53,8 +53,8 @@ const HeroSection = () => {
             ))}
           </div>
         </div>
-        <div className="hidden md:block">
-          <div className="w-64 h-80 overflow-hidden neo-card">
+        <div className="hidden md:block hero-photo-animate">
+          <div className="w-64 h-80 overflow-hidden neo-card hover:rotate-1 transition-transform duration-300">
             <img src={headshot} alt="Patricio Carena" className="w-full h-full object-cover" />
           </div>
         </div>
