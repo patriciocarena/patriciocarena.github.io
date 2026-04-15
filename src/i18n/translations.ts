@@ -14,7 +14,7 @@ export const translations = {
       headlineSub: "Operations, Quality & Data-driven improvement.",
       subheadline:
         "Industrial Engineering student at Universidad Católica de Córdoba | USF academic exchange (San Francisco) | Building KPI dashboards, quality systems, and process improvements.",
-      downloadCV: "Download CV",
+      downloadCV: "Download Resume",
       connect: "Let's Connect",
       chips: ["Process Optimization", "Data Visualization", "Continuous Improvement"],
     },
