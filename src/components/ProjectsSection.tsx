@@ -29,11 +29,11 @@ const ProjectsSection = () => {
                 {project.context}
               </p>
               <h3 className="text-xl font-bold text-primary mb-3">{project.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-5 flex-1">
+              <p className="text-muted-foreground text-sm leading-relaxed mb-3">
                 {project.description}
               </p>
               {project.outcomes.length > 0 && (
-                <ul className="mb-5 space-y-1.5">
+                <ul className="space-y-1.5 mb-auto">
                   {project.outcomes.map((o) => (
                     <li key={o} className="text-sm text-primary flex items-start gap-2">
                       <span className="text-neo-green mt-1 font-bold">▸</span>
