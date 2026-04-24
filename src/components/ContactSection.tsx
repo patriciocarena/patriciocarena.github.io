@@ -1,11 +1,14 @@
 import { useState, type FormEvent } from "react";
-import { Mail, Linkedin, Phone, Send, CheckCircle2, Github } from "lucide-react";
+import { Mail, Linkedin, Phone, Send, CheckCircle2, Github, Loader2 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+
+const FORMSPREE_ID = "xwpbknqv"; // patriciocarena.fin@gmail.com
 
 const ContactSection = () => {
   const { t } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const { ref, isVisible } = useScrollReveal<HTMLDivElement>();
 
@@ -20,12 +23,32 @@ const ContactSection = () => {
     return { errs, isValid: Object.keys(errs).length === 0 };
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
     const { errs, isValid } = validate(formData);
     setErrors(errs);
-    if (isValid) setSubmitted(true);
+    if (!isValid) return;
+
+    setSending(true);
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+      if (res.ok) {
+        setSubmitted(true);
+        form.reset();
+      } else {
+        setErrors({ submit: "Something went wrong. Please try again." });
+      }
+    } catch {
+      setErrors({ submit: "Network error. Please try again." });
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -107,12 +130,16 @@ const ContactSection = () => {
                 />
                 {errors.message && <p className="text-xs text-destructive mt-1 font-bold">{errors.message}</p>}
               </div>
+              {errors.submit && (
+                <p className="text-xs text-destructive font-bold">{errors.submit}</p>
+              )}
               <button
                 type="submit"
-                className="neo-btn inline-flex items-center gap-2 bg-neo-pink text-white px-6 py-3 text-sm"
+                disabled={sending}
+                className="neo-btn inline-flex items-center gap-2 bg-neo-pink text-white px-6 py-3 text-sm disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                <Send size={14} />
-                {t.contact.send}
+                {sending ? <Loader2 size={14} className="animate-spin" /> : <Send size={14} />}
+                {sending ? "Sending..." : t.contact.send}
               </button>
             </form>
           )}
