@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { Mail, Linkedin, Phone, Send, CheckCircle2 } from "lucide-react";
+import { Mail, Linkedin, Phone, Send, CheckCircle2, Github } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
@@ -58,6 +58,15 @@ const ContactSection = () => {
               <Phone size={16} className="text-neo-green" />
               +1 (415) 341-3531
             </div>
+            <a
+              href="https://github.com/patriciocarena"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              <Github size={16} className="text-neo-orange" />
+              github.com/patriciocarena
+            </a>
           </div>
 
           {submitted ? (
