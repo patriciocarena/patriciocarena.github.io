@@ -3,7 +3,7 @@ import { Mail, Linkedin, Phone, Send, CheckCircle2, Github, Loader2 } from "luci
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-const FORMSPREE_ID = "xwpbknqv"; // patriciocarena.fin@gmail.com
+const WEB3FORMS_KEY = "a7ea29d4-0ecb-4626-9a8b-a9df3d055204"; // patriciocarena.fin@gmail.com
 
 const ContactSection = () => {
   const { t } = useLanguage();
@@ -33,7 +33,8 @@ const ContactSection = () => {
 
     setSending(true);
     try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      formData.append("access_key", WEB3FORMS_KEY);
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: formData,
         headers: { Accept: "application/json" },
