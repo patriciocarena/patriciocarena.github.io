@@ -7,6 +7,7 @@ export const translations = {
       projects: "Projects",
       skills: "Skills",
       experience: "Experience",
+      education: "Education",
       contact: "Contact",
     },
     hero: {
@@ -119,6 +120,25 @@ export const translations = {
         },
       ],
     },
+    education: {
+      title: "Education & Training",
+      items: [
+        {
+          degree: "Bachelor's in Industrial Engineering",
+          institution: "Universidad Católica de Córdoba (UCC)",
+          period: "2023 – Present · Expected 2027",
+          description:
+            "Undergraduate degree in Industrial Engineering, started in 2023 and currently in progress, with expected graduation in 2027.",
+        },
+        {
+          degree: "Academic Exchange",
+          institution: "University of San Francisco (USF)",
+          period: "2026",
+          description:
+            "Academic exchange program at the University of San Francisco (USF), San Francisco, USA.",
+        },
+      ],
+    },
     awards: {
       title: "Awards & Recognition",
       teamLabel: "Team",
@@ -166,6 +186,7 @@ export const translations = {
       projects: "Proyectos",
       skills: "Habilidades",
       experience: "Experiencia",
+      education: "Educación",
       contact: "Contacto",
     },
     hero: {
@@ -275,6 +296,25 @@ export const translations = {
           period: "Ene – May 2022",
           description:
             "Realicé más de 10 demostraciones en vivo de líneas premium de utensilios de cocina (ticket promedio ~$200+). Generé ~$1,000 en ventas a través de demos a domicilio, manejo de objeciones y secuencias de seguimiento estructuradas.",
+        },
+      ],
+    },
+    education: {
+      title: "Educación y Formación",
+      items: [
+        {
+          degree: "Ingeniería Industrial (Grado)",
+          institution: "Universidad Católica de Córdoba (UCC)",
+          period: "2023 – Actualidad · Finalización prevista 2027",
+          description:
+            "Carrera de grado en Ingeniería Industrial, iniciada en 2023 y actualmente en curso, con finalización prevista para 2027.",
+        },
+        {
+          degree: "Intercambio Académico",
+          institution: "Universidad de San Francisco (USF)",
+          period: "2026",
+          description:
+            "Programa de intercambio académico en la Universidad de San Francisco (USF), San Francisco, EE.UU.",
         },
       ],
     },

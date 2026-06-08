@@ -3,7 +3,7 @@ import { Menu, X, Globe, Sun, Moon } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { useTheme } from "next-themes";
 
-const navKeys = ["about", "projects", "skills", "experience", "contact"] as const;
+const navKeys = ["about", "projects", "skills", "experience", "education", "contact"] as const;
 
 const Navbar = () => {
   const { lang, setLang, t } = useLanguage();
