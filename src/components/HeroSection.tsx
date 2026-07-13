@@ -1,5 +1,5 @@
 import { Download, Mail } from "lucide-react";
-import headshot from "@/assets/headshot.jpg";
+import headshot from "@/assets/FotoLinkedin.png";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const tagColors = [
