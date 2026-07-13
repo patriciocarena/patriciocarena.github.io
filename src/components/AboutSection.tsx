@@ -12,9 +12,11 @@ const AboutSection = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-primary">
           {t.about.title}<span className="text-neo-orange">.</span>
         </h2>
-        <p className="text-muted-foreground text-lg leading-relaxed">
-          {t.about.bio}
-        </p>
+        {t.about.bio.map((para) => (
+          <p key={para} className="text-muted-foreground text-lg leading-relaxed">
+            {para}
+          </p>
+        ))}
         <div className="flex items-start gap-4 p-5 neo-card bg-background hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all duration-150">
           <Target className="text-neo-orange mt-0.5 shrink-0" size={22} />
           <div>

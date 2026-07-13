@@ -12,19 +12,23 @@ export const translations = {
     },
     hero: {
       headline: "Industrial Engineering.",
-      headlineSub: "Operations, Quality & Data-driven improvement.",
+      headlineSub: "Building with AI to solve real problems.",
       subheadline:
-        "Industrial Engineering student at Universidad Católica de Córdoba | USF academic exchange (San Francisco) | Building KPI dashboards, quality systems, and process improvements.",
+        "Operations, Quality & Process Improvement. Back in Córdoba finishing my Industrial Engineering degree at Universidad Católica de Córdoba, after an academic exchange at USF in San Francisco.",
       downloadCV: "Download Resume",
       connect: "Let's Connect",
       chips: ["Process Optimization", "Data Visualization", "Continuous Improvement"],
     },
     about: {
       title: "About",
-      bio: "Industrial Engineering student (4th year, UCC Argentina) on academic exchange at USF in San Francisco. Hands-on experience implementing inventory and procurement systems in a biotech lab with hazmat compliance requirements. 4th place at the Stanford × DeepMind Hackathon.",
+      bio: [
+        "I'm an Industrial Engineer with an entrepreneurial mindset, driven by process improvement, data, and applied AI — focused on turning operational complexity into practical, measurable solutions.",
+        "I recently completed an academic exchange at the University of San Francisco, where I worked as an Industrial Engineering Intern at Frontier Tower – BioPunk, leading the implementation of a new inventory and procurement system for a biotech lab, including hazmat compliance and real-time tracking.",
+        "I placed 4th out of 100+ teams at the Stanford × DeepMind–Google Hackathon, building a working AI product in 3 hours, judged by 50+ VCs and industry leaders. I build with tools like Claude Code, Codex, and Google AI Studio, combining engineering rigor with a hands-on, fast-execution approach — a mindset I also forged as captain of my rugby team over several seasons.",
+      ],
       lookingTitle: "What I'm looking for",
       lookingText:
-        "Roles where I can apply process improvement, data-driven decision-making, and operational design in fast-moving environments.",
+        "Roles in Product, Growth, BizOps, or building with AI. Based in Córdoba, Argentina, finishing my Industrial Engineering degree at UCC.",
     },
     projects: {
       title: "Featured Projects",
@@ -191,19 +195,23 @@ export const translations = {
     },
     hero: {
       headline: "Ingeniería Industrial.",
-      headlineSub: "Operaciones, Calidad y Mejora basada en datos.",
+      headlineSub: "Construyendo con IA para resolver problemas reales.",
       subheadline:
-        "Estudiante de Ingeniería Industrial en la Universidad Católica de Córdoba | Intercambio académico en USF (San Francisco) | Construyendo dashboards de KPIs, sistemas de calidad y mejoras de procesos.",
+        "Operaciones, Calidad & Mejora de Procesos. De vuelta en Córdoba terminando mi carrera de Ingeniería Industrial en la Universidad Católica de Córdoba, tras un intercambio académico en USF, San Francisco.",
       downloadCV: "Descargar CV",
       connect: "Conectemos",
       chips: ["Optimización de procesos", "Visualización de Datos", "Mejora Continua"],
     },
     about: {
       title: "Sobre mí",
-      bio: "Estudiante de Ingeniería Industrial (4to año, UCC Argentina) en intercambio académico en USF, San Francisco. Experiencia práctica implementando sistemas de inventario y compras en un laboratorio de biotecnología con requisitos de cumplimiento de materiales peligrosos. 4to puesto en el Stanford × DeepMind Hackathon.",
+      bio: [
+        "Soy Ingeniero Industrial con mentalidad emprendedora, motivado por la mejora de procesos, los datos y la IA aplicada, enfocado en convertir la complejidad operativa en soluciones prácticas y medibles.",
+        "Recientemente completé un intercambio académico en la University of San Francisco, donde trabajé como Industrial Engineering Intern en Frontier Tower – BioPunk, liderando la implementación de un nuevo sistema de inventario y procurement para un laboratorio de biotecnología, incluyendo compliance de materiales peligrosos (hazmat) y seguimiento en tiempo real.",
+        "Salí 4to entre más de 100 equipos en el Stanford × DeepMind–Google Hackathon, construyendo un producto de IA funcional en 3 horas, evaluado por más de 50 VCs y líderes de industria. Suelo construir con herramientas como Claude Code, Codex y Google AI Studio, combinando rigor de ingeniería con un enfoque hands-on y de ejecución rápida — una mentalidad que también forjé como capitán de mi equipo de rugby durante varias temporadas.",
+      ],
       lookingTitle: "Qué estoy buscando",
       lookingText:
-        "Roles donde pueda aplicar mejora de procesos, toma de decisiones basada en datos y diseño operacional en entornos dinámicos.",
+        "Roles de Producto, Growth, BizOps o construcción con IA. Con base en Córdoba, Argentina, terminando mi carrera de Ingeniería Industrial en la UCC.",
     },
     projects: {
       title: "Proyectos Destacados",
