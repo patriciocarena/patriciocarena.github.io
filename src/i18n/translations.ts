@@ -8,6 +8,8 @@ export const translations = {
       skills: "Skills",
       experience: "Experience",
       education: "Education",
+      awards: "Awards",
+      leadership: "Leadership",
       contact: "Contact",
     },
     hero: {
@@ -191,6 +193,8 @@ export const translations = {
       skills: "Habilidades",
       experience: "Experiencia",
       education: "Educación",
+      awards: "Premios",
+      leadership: "Liderazgo",
       contact: "Contacto",
     },
     hero: {

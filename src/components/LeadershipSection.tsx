@@ -7,7 +7,7 @@ const LeadershipSection = () => {
   const { ref, isVisible } = useScrollReveal<HTMLDivElement>();
 
   return (
-    <section className="section-padding bg-cream">
+    <section id="leadership" className="section-padding bg-cream">
       <div ref={ref} className="max-w-3xl mx-auto">
         <h2 className={`text-3xl md:text-4xl font-bold text-primary mb-8 reveal ${isVisible ? "visible" : ""}`}>
           {t.leadership.title}<span className="text-neo-orange">.</span>
