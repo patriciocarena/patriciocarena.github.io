@@ -15,6 +15,13 @@ const Navbar = () => {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 40);
+      // The last section is too short to ever reach the top, so the bottom of
+      // the page counts as being on it.
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+      if (atBottom) {
+        setActiveSection(navKeys[navKeys.length - 1]);
+        return;
+      }
       for (let i = navKeys.length - 1; i >= 0; i--) {
         const el = document.getElementById(navKeys[i]);
         if (el && el.getBoundingClientRect().top <= 120) {
@@ -24,106 +31,122 @@ const Navbar = () => {
       }
       setActiveSection("");
     };
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const navLinks = navKeys.map((key) => ({
-    label: t.nav[key],
-    href: `#${key}`,
-    key,
-  }));
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setMobileOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [mobileOpen]);
+
+  const toggleLang = () => setLang(lang === "en" ? "es" : "en");
+  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
+  const solid = scrolled || mobileOpen;
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-150 ${
-        scrolled
-          ? "bg-background border-b-[3px] border-foreground"
-          : "bg-transparent"
+      className={`fixed inset-x-0 top-0 z-50 border-b-[3px] transition-[background-color,border-color] duration-200 ${
+        solid ? "bg-background/90 backdrop-blur-md border-foreground" : "bg-transparent border-transparent"
       }`}
     >
       <div className="nav-color-bar" />
-      <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
-        <a href="#" className="text-2xl font-bold text-primary tracking-tight">
-          PC<span className="text-neo-pink">.</span>
-        </a>
+      <div className="px-6 md:px-8">
+        <div className="section-shell flex h-16 items-center justify-between">
+          <a href="#" className="text-2xl font-bold tracking-tight text-primary" aria-label="Patricio Carena">
+            PC<span className="text-neo-pink">.</span>
+          </a>
 
-        {/* Desktop */}
-        <div className="hidden md:flex items-center gap-6">
-          {navLinks.map((link) => (
-            <a
-              key={link.key}
-              href={link.href}
-              className={`text-xs font-bold uppercase tracking-wider transition-colors hover:text-neo-pink ${
-                activeSection === link.key ? "text-neo-pink" : "text-muted-foreground"
-              }`}
-            >
-              {link.label}
-            </a>
-          ))}
+          {/* Desktop */}
+          <div className="hidden lg:flex items-center gap-8">
+            <ul className="flex items-center gap-6">
+              {navKeys.map((key) => {
+                const active = activeSection === key;
+                return (
+                  <li key={key}>
+                    <a
+                      href={`#${key}`}
+                      aria-current={active ? "location" : undefined}
+                      className={`relative py-1 text-xs font-bold uppercase tracking-wider transition-colors hover:text-primary after:absolute after:-bottom-0.5 after:left-0 after:h-[3px] after:bg-neo-pink after:transition-[width] after:duration-200 ${
+                        active ? "text-primary after:w-full" : "text-muted-foreground after:w-0 hover:after:w-full"
+                      }`}
+                    >
+                      {t.nav[key]}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={toggleLang}
+                className="neo-border flex h-9 items-center gap-1.5 px-2.5 text-xs font-bold text-foreground transition-colors hover:bg-neo-yellow hover:text-black"
+                aria-label={lang === "en" ? "Cambiar a español" : "Switch to English"}
+              >
+                <Globe size={14} />
+                {lang === "en" ? "ES" : "EN"}
+              </button>
+              <button
+                onClick={toggleTheme}
+                className="neo-border flex size-9 items-center justify-center text-foreground transition-colors hover:bg-neo-purple hover:text-white"
+                aria-label="Toggle dark mode"
+              >
+                {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile toggle */}
           <button
-            onClick={() => setLang(lang === "en" ? "es" : "en")}
-            className="neo-border px-2 py-1 flex items-center gap-1.5 text-xs font-bold text-foreground hover:bg-neo-yellow transition-colors"
-            aria-label="Switch language"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="lg:hidden neo-border flex size-10 items-center justify-center text-primary"
+            aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
           >
-            <Globe size={14} />
-            {lang === "en" ? "ES" : "EN"}
-          </button>
-          <button
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="neo-border px-2 py-1 text-foreground hover:bg-neo-purple hover:text-white transition-colors"
-            aria-label="Toggle dark mode"
-          >
-            {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
-
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-primary p-2 neo-border"
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
       </div>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-background border-b-[3px] border-foreground px-6 pb-4">
-          <ul className="flex flex-col gap-3">
-            {navLinks.map((link) => (
-              <li key={link.key}>
+        <div id="mobile-menu" className="lg:hidden border-t-[3px] border-foreground bg-background px-6 md:px-8 pb-6">
+          <ul className="section-shell flex flex-col">
+            {navKeys.map((key) => (
+              <li key={key}>
                 <a
-                  href={link.href}
+                  href={`#${key}`}
                   onClick={() => setMobileOpen(false)}
-                  className={`text-xs font-bold uppercase tracking-wider transition-colors hover:text-neo-pink ${
-                    activeSection === link.key ? "text-neo-pink" : "text-muted-foreground"
+                  className={`flex items-center justify-between border-b-2 border-border py-3.5 text-sm font-bold uppercase tracking-wider transition-colors hover:text-neo-pink ${
+                    activeSection === key ? "text-neo-pink" : "text-primary"
                   }`}
                 >
-                  {link.label}
+                  {t.nav[key]}
+                  <span aria-hidden="true">→</span>
                 </a>
               </li>
             ))}
-            <li>
-              <button
-                onClick={() => { setLang(lang === "en" ? "es" : "en"); setMobileOpen(false); }}
-                className="neo-border px-2 py-1 flex items-center gap-1.5 text-xs font-bold text-foreground hover:bg-neo-yellow transition-colors"
-              >
-                <Globe size={14} />
-                {lang === "en" ? "Español" : "English"}
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => { setTheme(theme === "dark" ? "light" : "dark"); setMobileOpen(false); }}
-                className="neo-border px-2 py-1 flex items-center gap-1.5 text-xs font-bold text-foreground hover:bg-neo-purple hover:text-white transition-colors"
-              >
-                {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
-                {theme === "dark" ? "Light Mode" : "Dark Mode"}
-              </button>
-            </li>
           </ul>
+          <div className="section-shell flex gap-3 pt-5">
+            <button
+              onClick={() => { toggleLang(); setMobileOpen(false); }}
+              className="neo-btn flex flex-1 items-center justify-center gap-2 bg-neo-yellow py-2.5 text-xs text-black"
+            >
+              <Globe size={14} />
+              {lang === "en" ? "Español" : "English"}
+            </button>
+            <button
+              onClick={() => { toggleTheme(); setMobileOpen(false); }}
+              className="neo-btn flex flex-1 items-center justify-center gap-2 bg-background py-2.5 text-xs text-foreground"
+            >
+              {theme === "dark" ? <Sun size={14} /> : <Moon size={14} />}
+              {theme === "dark" ? "Light" : "Dark"}
+            </button>
+          </div>
         </div>
       )}
     </nav>

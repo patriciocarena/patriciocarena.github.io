@@ -12,15 +12,6 @@ interface Shape {
   rotation: number;
 }
 
-const colors = [
-  "var(--neo-pink-rgb, 350 90% 65%)",
-  "var(--neo-blue-rgb, 210 100% 56%)",
-  "var(--neo-yellow-rgb, 48 100% 60%)",
-  "var(--neo-green-rgb, 145 65% 45%)",
-  "var(--neo-orange-rgb, 25 95% 58%)",
-  "var(--neo-purple-rgb, 270 70% 58%)",
-];
-
 const colorClasses = [
   "text-neo-pink",
   "text-neo-blue",

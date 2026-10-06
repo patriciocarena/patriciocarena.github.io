@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 
-export function useScrollReveal<T extends HTMLElement>(threshold = 0.15) {
+// Reveals once the element's top edge is ~12% inside the viewport. A rootMargin
+// (instead of an area threshold) keeps very tall sections from never firing.
+export function useScrollReveal<T extends HTMLElement>(rootMargin = "0px 0px -12% 0px") {
   const ref = useRef<T>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -15,12 +17,12 @@ export function useScrollReveal<T extends HTMLElement>(threshold = 0.15) {
           observer.unobserve(el);
         }
       },
-      { threshold }
+      { rootMargin }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [threshold]);
+  }, [rootMargin]);
 
   return { ref, isVisible };
 }

@@ -53,6 +53,11 @@
     --neo-shadow-color: 210 75% 17%;
     --neo-shadow: 4px 4px 0 hsl(var(--neo-shadow-color));
     --neo-shadow-sm: 2px 2px 0 hsl(var(--neo-shadow-color));
+    --neo-shadow-lg: 7px 7px 0 hsl(var(--neo-shadow-color));
+
+    /* gold tuned for text on light backgrounds (≥3:1 for large type) */
+    --gold-ink: 38 92% 42%;
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -90,6 +95,9 @@
     --neo-shadow-color: 0 0% 95%;
     --neo-shadow: 4px 4px 0 hsl(var(--neo-shadow-color));
     --neo-shadow-sm: 2px 2px 0 hsl(var(--neo-shadow-color));
+    --neo-shadow-lg: 7px 7px 0 hsl(var(--neo-shadow-color));
+
+    --gold-ink: 44 98% 55%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -118,11 +126,29 @@
   html {
     scroll-behavior: smooth;
   }
+
+  section[id] {
+    scroll-margin-top: 4rem;
+  }
+
+  ::selection {
+    background-color: hsl(var(--neo-yellow));
+    color: hsl(var(--navy));
+  }
+
+  :focus-visible {
+    outline: 3px solid hsl(var(--neo-blue));
+    outline-offset: 3px;
+  }
 }
 
 @layer utilities {
   .text-gradient-gold {
-    color: hsl(var(--gold));
+    color: hsl(var(--gold-ink));
+  }
+
+  .section-shell {
+    @apply max-w-6xl mx-auto;
   }
 
   .border-gold-subtle {
@@ -134,7 +160,7 @@
   }
 
   .section-padding {
-    @apply py-14 md:py-20 px-6 md:px-8;
+    @apply py-16 md:py-24 px-6 md:px-8;
   }
 
   .neo-border {
@@ -192,47 +218,57 @@
     padding: 0.25rem 0.75rem;
   }
 
-  /* Scroll reveal animations */
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Card hover: lift into a deeper shadow. Uses the `translate` property so it
+     never fights the `transform`-based reveal animations below. Must stay
+     before .reveal so the reveal's transition list (a superset) wins. */
+  .neo-card-hover {
+    transition: translate 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
   }
 
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
+  .neo-card-hover:hover {
+    translate: -3px -3px;
+    box-shadow: var(--neo-shadow-lg);
   }
 
-  .reveal-left {
-    opacity: 0;
-    transform: translateX(-40px);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .reveal-left.visible {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
+  /* Scroll reveal animations. The stagger delay only applies to the reveal
+     itself, not to hover feedback. */
+  .reveal,
+  .reveal-left,
   .reveal-right {
     opacity: 0;
-    transform: translateX(40px);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition:
+      opacity 0.7s var(--ease-out) var(--reveal-delay, 0s),
+      transform 0.7s var(--ease-out) var(--reveal-delay, 0s),
+      translate 0.2s var(--ease-out),
+      box-shadow 0.2s var(--ease-out);
   }
 
+  .reveal { transform: translateY(30px); }
+  .reveal-left { transform: translateX(-40px); }
+  .reveal-right { transform: translateX(40px); }
+
+  .reveal.visible,
+  .reveal-left.visible,
   .reveal-right.visible {
     opacity: 1;
-    transform: translateX(0);
+    transform: none;
   }
 
-  .stagger-1 { transition-delay: 0.1s; }
-  .stagger-2 { transition-delay: 0.2s; }
-  .stagger-3 { transition-delay: 0.3s; }
-  .stagger-4 { transition-delay: 0.4s; }
+  .stagger-1 { --reveal-delay: 0.08s; }
+  .stagger-2 { --reveal-delay: 0.16s; }
+  .stagger-3 { --reveal-delay: 0.24s; }
+  .stagger-4 { --reveal-delay: 0.32s; }
+  .stagger-5 { --reveal-delay: 0.4s; }
+  .stagger-6 { --reveal-delay: 0.48s; }
+
+  .animate-marquee {
+    animation: marquee 45s linear infinite;
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 /* Floating shapes animation */
@@ -306,4 +342,25 @@
     hsl(var(--neo-blue)) 80%,
     hsl(var(--neo-purple)) 100%
   );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal,
+  .reveal-left,
+  .reveal-right {
+    opacity: 1;
+    transform: none;
+  }
 }
